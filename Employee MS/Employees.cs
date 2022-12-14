@@ -16,5 +16,12 @@ namespace Employee_MS
         {
             InitializeComponent();
         }
+
+
+        //By Mistake
+        private void Employees_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
