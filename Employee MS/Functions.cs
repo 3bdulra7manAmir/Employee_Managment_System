@@ -28,7 +28,18 @@ namespace Employee_MS
         public DataTable GetData(string Query)
         {
             dt = new DataTable();
-            sda = new
+            sda = new SqlDataAdapter(Query, ConStr);
+            return dt;
+        }
+
+        public int SetData(string Query)
+        {
+            int cnt = 0;
+            if(Con.State == ConnectionState.Closed)
+            {
+                Con.Open();
+            }
+            
         }
     }
 }
