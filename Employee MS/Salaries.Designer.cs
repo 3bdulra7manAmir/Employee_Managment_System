@@ -33,9 +33,7 @@
             this.UpdateBtn = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.SalaryTb = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.DaysTb = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,13 +43,16 @@
             this.PeriodTb = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.SalaryList = new System.Windows.Forms.DataGridView();
+            this.SalaryLbl = new System.Windows.Forms.Label();
+            this.SalaryTb = new System.Windows.Forms.DateTimePicker();
+            this.DaysTb = new System.Windows.Forms.TextBox();
+            this.AmountTb = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -98,6 +99,7 @@
             this.AddBtn.TabIndex = 36;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = false;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // label6
             // 
@@ -110,14 +112,6 @@
             this.label6.TabIndex = 31;
             this.label6.Text = "Salary Amount";
             // 
-            // SalaryTb
-            // 
-            this.SalaryTb.CalendarTitleForeColor = System.Drawing.Color.DarkSlateGray;
-            this.SalaryTb.Location = new System.Drawing.Point(35, 494);
-            this.SalaryTb.Name = "SalaryTb";
-            this.SalaryTb.Size = new System.Drawing.Size(310, 32);
-            this.SalaryTb.TabIndex = 30;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -128,17 +122,6 @@
             this.label5.Size = new System.Drawing.Size(64, 24);
             this.label5.TabIndex = 28;
             this.label5.Text = "Perios";
-            // 
-            // DaysTb
-            // 
-            this.DaysTb.FormattingEnabled = true;
-            this.DaysTb.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.DaysTb.Location = new System.Drawing.Point(35, 334);
-            this.DaysTb.Name = "DaysTb";
-            this.DaysTb.Size = new System.Drawing.Size(310, 32);
-            this.DaysTb.TabIndex = 27;
             // 
             // label4
             // 
@@ -203,6 +186,7 @@
             this.EmpCb.Name = "EmpCb";
             this.EmpCb.Size = new System.Drawing.Size(310, 32);
             this.EmpCb.TabIndex = 40;
+            this.EmpCb.SelectedIndexChanged += new System.EventHandler(this.EmpCb_SelectedIndexChanged);
             // 
             // PeriodTb
             // 
@@ -234,18 +218,6 @@
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 63;
             this.pictureBox5.TabStop = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label10.ForeColor = System.Drawing.Color.Teal;
-            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(934, 129);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 24);
-            this.label10.TabIndex = 62;
-            this.label10.Text = "Salary";
             // 
             // pictureBox4
             // 
@@ -306,7 +278,7 @@
             // 
             // SalaryList
             // 
-            this.SalaryList.BackgroundColor = System.Drawing.Color.Teal;
+            this.SalaryList.BackgroundColor = System.Drawing.Color.Silver;
             this.SalaryList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SalaryList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SalaryList.GridColor = System.Drawing.Color.White;
@@ -318,16 +290,53 @@
             this.SalaryList.TabIndex = 65;
             this.SalaryList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SalaryList_CellContentClick);
             // 
+            // SalaryLbl
+            // 
+            this.SalaryLbl.AutoSize = true;
+            this.SalaryLbl.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.SalaryLbl.ForeColor = System.Drawing.Color.Teal;
+            this.SalaryLbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.SalaryLbl.Location = new System.Drawing.Point(934, 129);
+            this.SalaryLbl.Name = "SalaryLbl";
+            this.SalaryLbl.Size = new System.Drawing.Size(65, 24);
+            this.SalaryLbl.TabIndex = 66;
+            this.SalaryLbl.Text = "Salary";
+            this.SalaryLbl.Click += new System.EventHandler(this.SalaryLbl_Click);
+            // 
+            // SalaryTb
+            // 
+            this.SalaryTb.CalendarTitleForeColor = System.Drawing.Color.DarkSlateGray;
+            this.SalaryTb.Location = new System.Drawing.Point(35, 494);
+            this.SalaryTb.Name = "SalaryTb";
+            this.SalaryTb.Size = new System.Drawing.Size(310, 32);
+            this.SalaryTb.TabIndex = 30;
+            // 
+            // DaysTb
+            // 
+            this.DaysTb.Location = new System.Drawing.Point(35, 335);
+            this.DaysTb.Name = "DaysTb";
+            this.DaysTb.Size = new System.Drawing.Size(310, 32);
+            this.DaysTb.TabIndex = 67;
+            // 
+            // AmountTb
+            // 
+            this.AmountTb.Location = new System.Drawing.Point(35, 548);
+            this.AmountTb.Name = "AmountTb";
+            this.AmountTb.Size = new System.Drawing.Size(310, 32);
+            this.AmountTb.TabIndex = 68;
+            // 
             // Salaries
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1300, 800);
+            this.Controls.Add(this.AmountTb);
+            this.Controls.Add(this.DaysTb);
+            this.Controls.Add(this.SalaryLbl);
             this.Controls.Add(this.SalaryList);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
@@ -341,7 +350,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.SalaryTb);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.DaysTb);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -352,6 +360,7 @@
             this.Name = "Salaries";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Salaries";
+            this.Load += new System.EventHandler(this.Salaries_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -370,9 +379,7 @@
         private System.Windows.Forms.Button UpdateBtn;
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker SalaryTb;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox DaysTb;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
@@ -382,12 +389,15 @@
         private System.Windows.Forms.DateTimePicker PeriodTb;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.DataGridView SalaryList;
+        private System.Windows.Forms.Label SalaryLbl;
+        private System.Windows.Forms.DateTimePicker SalaryTb;
+        private System.Windows.Forms.TextBox DaysTb;
+        private System.Windows.Forms.TextBox AmountTb;
     }
 }
