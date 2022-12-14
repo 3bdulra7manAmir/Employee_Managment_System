@@ -114,5 +114,13 @@ namespace Employee_MS
                 MessageBox.Show(Ex.Message);
             }
         }
+
+        private void DepLbl_Click(object sender, EventArgs e)
+        {
+            Employees Obj = new Employees();
+            Obj.Show();
+            this.Hide();
+
+        }
     }
 }
