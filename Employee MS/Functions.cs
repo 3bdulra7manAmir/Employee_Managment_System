@@ -39,7 +39,9 @@ namespace Employee_MS
             {
                 Con.Open();
             }
-            
+            Cmd.CommandText = Query;
+            cnt = Cmd.ExecuteNonQuery();
+            return cnt;
         }
     }
 }
