@@ -17,5 +17,30 @@ namespace Employee_MS
             InitializeComponent();
         }
 
+        private void ResetLbl_Click(object sender, EventArgs e)
+        {
+            UNameTb.Text = "";
+            PasswordTb.Text = "";
+        }
+
+        private void LoginBtn_Click(object sender, EventArgs e)
+        {
+            if(UNameTb.Text == "" || PasswordTb.Text == "")
+            {
+                MessageBox.Show("Missing Data!!!");
+            }
+            else if (UNameTb.Text == "Shadow" && PasswordTb.Text == "0-1Actual")
+            {
+                Employees Obj = new Employees();
+                Obj.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Wrong Uname Or Pass ");
+                UNameTb.Text = "";
+                PasswordTb.Text = "";
+            }
+        }
     }
 }
