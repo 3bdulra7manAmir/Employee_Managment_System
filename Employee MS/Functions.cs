@@ -28,20 +28,23 @@ namespace Employee_MS
         public DataTable GetData(string Query)
         {
             dt = new DataTable();
-            sda = new SqlDataAdapter(Query, ConStr);
+            sda = new SqlDataAdapter(Query, Con);
+            sda.Fill(dt);
             return dt;
         }
 
         public int SetData(string Query)
         {
-            int cnt = 0;
+            int Cnt = 0;
             if(Con.State == ConnectionState.Closed)
             {
                 Con.Open();
             }
+            Console.WriteLine(Query);
             Cmd.CommandText = Query;
-            cnt = Cmd.ExecuteNonQuery();
-            return cnt;
+            Cnt = Cmd.ExecuteNonQuery();
+            Con.Close();
+            return Cnt;
         }
     }
 }
