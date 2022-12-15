@@ -101,7 +101,7 @@ namespace Employee_MS
                 else
                 {
                     string Dep = DepNameTb.Text;
-                    string Query = "Delete from DepartmentTb1 where DepId = {1}";
+                    string Query = "Delete from DepartmentTb1 where DepId = {0}";
                     Query = string.Format(Query, Key);
                     Con.SetData(Query);
                     ShowDepartments();
@@ -115,12 +115,36 @@ namespace Employee_MS
             }
         }
 
+        //Employees
         private void DepLbl_Click(object sender, EventArgs e)
         {
             Employees Obj = new Employees();
             Obj.Show();
             this.Hide();
 
+        }
+
+        private void SalaryLbl_Click(object sender, EventArgs e)
+        {
+                        Salaries Obj = new Salaries();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            Login Obj = new Login();
+            Obj.Show();
+            this.Hide();
+        }
+
+
+        //Departments
+        private void EmployeeLbl_Click(object sender, EventArgs e)
+        {
+            Departments obj = new Departments();
+            obj.Show();
+            this.Hide();
         }
     }
 }

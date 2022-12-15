@@ -42,12 +42,12 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.DepLbl = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.EmployeeLbl = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.Logout = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.DeleteBtn = new System.Windows.Forms.Button();
+            this.SalaryLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DepList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -151,17 +151,12 @@
             this.DepLbl.Name = "DepLbl";
             this.DepLbl.Click += new System.EventHandler(this.DepLbl_Click);
             // 
-            // label6
+            // EmployeeLbl
             // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.ForeColor = System.Drawing.Color.Teal;
-            this.label6.Name = "label6";
-            // 
-            // label7
-            // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.ForeColor = System.Drawing.Color.Teal;
-            this.label7.Name = "label7";
+            resources.ApplyResources(this.EmployeeLbl, "EmployeeLbl");
+            this.EmployeeLbl.ForeColor = System.Drawing.Color.Teal;
+            this.EmployeeLbl.Name = "EmployeeLbl";
+            this.EmployeeLbl.Click += new System.EventHandler(this.EmployeeLbl_Click);
             // 
             // pictureBox4
             // 
@@ -169,11 +164,12 @@
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.TabStop = false;
             // 
-            // label8
+            // Logout
             // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.ForeColor = System.Drawing.Color.Teal;
-            this.label8.Name = "label8";
+            resources.ApplyResources(this.Logout, "Logout");
+            this.Logout.ForeColor = System.Drawing.Color.Teal;
+            this.Logout.Name = "Logout";
+            this.Logout.Click += new System.EventHandler(this.Logout_Click);
             // 
             // pictureBox5
             // 
@@ -192,17 +188,24 @@
             this.DeleteBtn.UseVisualStyleBackColor = false;
             this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
+            // SalaryLbl
+            // 
+            resources.ApplyResources(this.SalaryLbl, "SalaryLbl");
+            this.SalaryLbl.ForeColor = System.Drawing.Color.Teal;
+            this.SalaryLbl.Name = "SalaryLbl";
+            this.SalaryLbl.Click += new System.EventHandler(this.SalaryLbl_Click);
+            // 
             // Departments
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.SalaryLbl);
             this.Controls.Add(this.DeleteBtn);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.Logout);
             this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.EmployeeLbl);
             this.Controls.Add(this.DepLbl);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -246,11 +249,11 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label DepLbl;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label EmployeeLbl;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label Logout;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button DeleteBtn;
+        private System.Windows.Forms.Label SalaryLbl;
     }
 }
