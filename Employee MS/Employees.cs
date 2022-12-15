@@ -55,11 +55,11 @@ namespace Employee_MS
                 {
                     string Name = EmpNameTb.Text;
                     string Gender = GenCb.SelectedItem.ToString();
-                    int Dep = Convert.ToInt32(GenCb.SelectedItem.ToString());
+                    int Dep = Convert.ToInt32(DepCb.SelectedValue.ToString());
                     string DOB = DOBTb.Value.ToString();
                     string JDate = JDateTb.Value.ToString();
                     int Salary = Convert.ToInt32(DailySalTb.Text);
-                    string Query = "insert into EmployeeTb1 values('{0}','{1}','{2}','{3}','{4}',{5})";
+                    string Query = "insert into EmployeeTb1 values('{0}','{1}','{2}','{3}','{4}','{5}')";
                     Query = string.Format(Query, Name, Gender, Dep, DOB, JDate, Salary);
                     Con.SetData(Query);
                     ShowEmp();
@@ -86,7 +86,7 @@ namespace Employee_MS
                 }
                 else
                 {
-                    string Query = "delete from EmployeeTb1 where EmpId = {0}";
+                    string Query = "Delete from EmployeeTb1 where EmpId = {0}";
                     Query = string.Format(Query,Key);
                     Con.SetData(Query);
                     ShowEmp();
@@ -115,7 +115,7 @@ namespace Employee_MS
                 {
                     string Name = EmpNameTb.Text;
                     string Gender = GenCb.SelectedItem.ToString();
-                    int Dep = Convert.ToInt32(GenCb.SelectedItem.ToString());
+                    int Dep = Convert.ToInt32(GenCb.SelectedValue.ToString());
                     string DOB = DOBTb.Value.ToString();
                     string JDate = JDateTb.Value.ToString();
                     int Salary = Convert.ToInt32(DailySalTb.Text);
@@ -140,7 +140,7 @@ namespace Employee_MS
         {
             EmpNameTb.Text = EmployeeList.SelectedRows[0].Cells[1].Value.ToString();
             GenCb.Text = EmployeeList.SelectedRows[0].Cells[2].Value.ToString();
-            DepCb.Text = EmployeeList.SelectedRows[0].Cells[3].Value.ToString();
+            DepCb.SelectedValue = EmployeeList.SelectedRows[0].Cells[3].Value.ToString();
             DOBTb.Text = EmployeeList.SelectedRows[0].Cells[4].Value.ToString();
             JDateTb.Text = EmployeeList.SelectedRows[0].Cells[5].Value.ToString();
             DailySalTb.Text = EmployeeList.SelectedRows[0].Cells[6].Value.ToString();
@@ -152,6 +152,34 @@ namespace Employee_MS
             {
                 Key = Convert.ToInt32(EmployeeList.SelectedRows[0].Cells[0].Value.ToString());
             }
+        }
+
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            Login Obj = new Login();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void EmployeeLbl_Click(object sender, EventArgs e)
+        {
+            Employees obj = new Employees();
+            obj.Show();
+            this.Hide();
+        }
+
+        private void DepLbl_Click(object sender, EventArgs e)
+        {
+            Departments obj = new Departments();
+            obj.Show();
+            this.Hide();
+        }
+
+        private void SalaryLbl_Click(object sender, EventArgs e)
+        {
+            Salaries obj = new Salaries();
+            obj.Show();
+            this.Hide();
         }
     }
 }
