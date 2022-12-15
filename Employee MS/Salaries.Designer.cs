@@ -44,8 +44,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.DepartmentLbl = new System.Windows.Forms.Label();
+            this.EmployeeLbl = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.SalaryList = new System.Windows.Forms.DataGridView();
@@ -207,6 +207,7 @@
             this.label9.Size = new System.Drawing.Size(71, 24);
             this.label9.TabIndex = 64;
             this.label9.Text = "Logout";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // pictureBox5
             // 
@@ -230,29 +231,31 @@
             this.pictureBox4.TabIndex = 61;
             this.pictureBox4.TabStop = false;
             // 
-            // label11
+            // DepartmentLbl
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label11.ForeColor = System.Drawing.Color.Teal;
-            this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label11.Location = new System.Drawing.Point(701, 129);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(126, 24);
-            this.label11.TabIndex = 60;
-            this.label11.Text = "Departments";
+            this.DepartmentLbl.AutoSize = true;
+            this.DepartmentLbl.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.DepartmentLbl.ForeColor = System.Drawing.Color.Teal;
+            this.DepartmentLbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.DepartmentLbl.Location = new System.Drawing.Point(701, 129);
+            this.DepartmentLbl.Name = "DepartmentLbl";
+            this.DepartmentLbl.Size = new System.Drawing.Size(126, 24);
+            this.DepartmentLbl.TabIndex = 60;
+            this.DepartmentLbl.Text = "Departments";
+            this.DepartmentLbl.Click += new System.EventHandler(this.DepartmentLbl_Click);
             // 
-            // label12
+            // EmployeeLbl
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label12.ForeColor = System.Drawing.Color.Teal;
-            this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label12.Location = new System.Drawing.Point(467, 129);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(97, 24);
-            this.label12.TabIndex = 59;
-            this.label12.Text = "Employee";
+            this.EmployeeLbl.AutoSize = true;
+            this.EmployeeLbl.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.EmployeeLbl.ForeColor = System.Drawing.Color.Teal;
+            this.EmployeeLbl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.EmployeeLbl.Location = new System.Drawing.Point(467, 129);
+            this.EmployeeLbl.Name = "EmployeeLbl";
+            this.EmployeeLbl.Size = new System.Drawing.Size(97, 24);
+            this.EmployeeLbl.TabIndex = 59;
+            this.EmployeeLbl.Text = "Employee";
+            this.EmployeeLbl.Click += new System.EventHandler(this.EmployeeLbl_Click);
             // 
             // pictureBox3
             // 
@@ -338,8 +341,8 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.DepartmentLbl);
+            this.Controls.Add(this.EmployeeLbl);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.PeriodTb);
@@ -390,8 +393,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label DepartmentLbl;
+        private System.Windows.Forms.Label EmployeeLbl;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.DataGridView SalaryList;

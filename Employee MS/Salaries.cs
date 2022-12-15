@@ -23,8 +23,15 @@ namespace Employee_MS
 
         private void ShowSalaries()
         {
-            string Query = "Select * from SalaryTb1";
-            SalaryList.DataSource = Con.GetData(Query);
+            try
+            {
+                string Query = "Select * from SalaryTb1";
+                SalaryList.DataSource = Con.GetData(Query);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         private void GetEmployees()
@@ -39,7 +46,7 @@ namespace Employee_MS
         string Period = "";
         private void GetSalary()
         {
-            string Query = "select EmpSal from EmployeeTb1 where EmpName = {0}";
+            string Query = "select * from EmployeeTb1 where EmpId = {0}";
             Query = string.Format(Query, EmpCb.SelectedValue.ToString());
             foreach(DataRow dr in Con.GetData(Query).Rows)
             { 
@@ -48,12 +55,18 @@ namespace Employee_MS
             //MessageBox.Show("" + DSal);
             if(DaysTb.Text == "")
             {
-                DaysTb.Text = "Rs" + (d * DSal);
+                AmountTb.Text = "Rs  " + (d * DSal);
             }
+
+            else if(Convert.ToInt32(DaysTb.Text) > 31)
+            {
+                MessageBox.Show("Days Can not Be Greater Than 31");
+            }
+
             else
             {
                 d = Convert.ToInt32(DaysTb.Text);
-                AmountTb.Text = "Rs" + (d * DSal);
+                AmountTb.Text = "Rs " + (d * DSal);
             }
 
         }
@@ -69,14 +82,6 @@ namespace Employee_MS
         }
 
 
-
-        private void SalaryLbl_Click(object sender, EventArgs e)
-        {
-            Salaries Obj = new Salaries();
-            Obj.Show();
-            this.Hide();
-        }
-
         int d = 1;
         private void AddBtn_Click(object sender, EventArgs e)
         {
@@ -91,7 +96,7 @@ namespace Employee_MS
                     Period = PeriodTb.Value.Date.Month.ToString() + "-" + PeriodTb.Value.Date.Year.ToString();
                     int Amount = DSal * Convert.ToInt32(DaysTb.Text);
                     int Days = Convert.ToInt32(DaysTb.Text);
-                    string Query = "insert into EmployeeTb1 values({0},{1},'{2}',{3},'{4}')";
+                    string Query = "insert into SalaryTb1 values({0},{1},'{2}',{3},'{4}')";
                     Query = string.Format(Query, EmpCb.SelectedValue.ToString(), Days, Period, Amount, DateTime.Today.Date);
                     Con.SetData(Query);
                     ShowSalaries();
@@ -110,6 +115,36 @@ namespace Employee_MS
         private void EmpCb_SelectedIndexChanged(object sender, EventArgs e)
         {
             GetSalary();
+        }
+
+
+        //Logout
+        private void label9_Click(object sender, EventArgs e)
+        {
+            Login Obj = new Login();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void DepartmentLbl_Click(object sender, EventArgs e)
+        {
+            Departments obj = new Departments();
+            obj.Show();
+            this.Hide();
+        }
+
+        private void EmployeeLbl_Click(object sender, EventArgs e)
+        {
+            Employees obj = new Employees();
+            obj.Show();
+            this.Hide();
+        }
+
+        private void SalaryLbl_Click(object sender, EventArgs e)
+        {
+            Salaries Obj = new Salaries();
+            Obj.Show();
+            this.Hide();
         }
     }
 }
