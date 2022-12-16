@@ -29,7 +29,7 @@ namespace Employee_MS
             {
                 MessageBox.Show("Missing Data!!!");
             }
-            else if (UNameTb.Text == "Shadow" && PasswordTb.Text == "0-1Actual")
+            else if (UNameTb.Text == "0" && PasswordTb.Text == "0")
             {
                 Employees Obj = new Employees();
                 Obj.Show();

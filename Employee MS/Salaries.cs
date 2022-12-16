@@ -146,5 +146,20 @@ namespace Employee_MS
             Obj.Show();
             this.Hide();
         }
+
+        private void SalaryTb_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AmountTb_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SalaryList_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
